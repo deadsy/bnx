@@ -9,11 +9,13 @@ import (
 func main() {
 
 	pmf := bn.NewPmf()
+	pmf.Set("Bowl 1", 0.5)
+	pmf.Set("Bowl 2", 0.5)
 
-	pmf.Set("1", 0.1)
-	pmf.Set("2", 0.2)
-	pmf.Set("3", 0.3)
-	pmf.Set("4", 0.4)
+	pmf.Mul("Bowl 1", 0.75)
+	pmf.Mul("Bowl 2", 0.5)
 
-	fmt.Printf("%v\n", pmf)
+	pmf.Normalize()
+
+	fmt.Printf("%f\n", pmf.P("Bowl 1"))
 }
